@@ -26,3 +26,26 @@ fetchs other close by memory and stores it in L1, L2 and L3 caches.  Subsequenti
 
 The only real way to tell if you program is faster or slower using a certain technique is to benchmark it.  So I've created some benchmarks on copying different sized structs
 using literal values and pointers.  I would recommend benchmarking you own program before making any decision and use this as a guide only.
+
+```
+goos: darwin
+goarch: amd64
+pkg: pointerbench
+cpu: Intel(R) Core(TM) i5-1038NG7 CPU @ 2.00GHz
+BenchmarkToRecords-8             	   76118	     14859 ns/op	   81920 B/op	       1 allocs/op
+BenchmarkToRecordsPointer-8      	    7795	    164921 ns/op	  161920 B/op	   10001 allocs/op
+BenchmarkToRecord8s-8            	    5164	    194936 ns/op	  647171 B/op	       1 allocs/op
+BenchmarkToRecord8sPointer-8     	    3480	    337193 ns/op	  721924 B/op	   10001 allocs/op
+BenchmarkToRecord16s-8           	    2889	    353150 ns/op	 1286148 B/op	       1 allocs/op
+BenchmarkToRecord16sPointer-8    	    2334	    484936 ns/op	 1361924 B/op	   10001 allocs/op
+BenchmarkToRecord24s-8           	    2094	    486829 ns/op	 1925122 B/op	       1 allocs/op
+BenchmarkToRecord24sPointer-8    	    1695	    635061 ns/op	 2001923 B/op	   10001 allocs/op
+BenchmarkToRecord32s-8           	    1567	    736798 ns/op	 2564108 B/op	       1 allocs/op
+BenchmarkToRecord32sPointer-8    	    1574	    761292 ns/op	 2641925 B/op	   10001 allocs/op
+BenchmarkToRecord64s-8           	     772	   1522499 ns/op	 5120006 B/op	       1 allocs/op
+BenchmarkToRecord64sPointer-8    	     914	   1278165 ns/op	 5201924 B/op	   10001 allocs/op
+BenchmarkToRecord128s-8          	     369	   3156291 ns/op	10240005 B/op	       1 allocs/op
+BenchmarkToRecord128sPointer-8   	     531	   2246717 ns/op	10321923 B/op	   10001 allocs/op
+PASS
+ok  	pointerbench	18.188s
+```
