@@ -1,5 +1,5 @@
 // Pointer Test
-// go test -bench=. -size=10000 -benchmem
+// go test -bench=. -benchmem -size=10000
 
 package slice
 
